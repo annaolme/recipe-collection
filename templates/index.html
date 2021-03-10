@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="search-bar">
+    <form method="GET" action="/">
+        <input type="text" name="search" placeholder="Search recipes..." value="{{ search }}">
+    </form>
+</div>
+{% if categories %}
+<div class="categories">
+    <a href="/" class="cat-btn {% if not current_category %}active{% endif %}">All</a>
+    {% for cat in categories %}
+    <a href="/?category={{ cat.category }}" class="cat-btn {% if current_category == cat.category %}active{% endif %}">{{ cat.category }}</a>
+    {% endfor %}
+</div>
+{% endif %}
+{% if recipes %}
+<div class="recipe-grid">
+    {% for recipe in recipes %}
+    <a href="/recipe/{{ recipe.id }}" class="recipe-card">
+        <h3>{{ recipe.title }}</h3>
+        {% if recipe.category %}<span class="tag">{{ recipe.category }}</span>{% endif %}
+        {% if recipe.prep_time %}<span class="time">⏱ {{ recipe.prep_time }}</span>{% endif %}
+    </a>
+    {% endfor %}
+</div>
+{% else %}
+<p class="empty">No recipes found. Add your first one!</p>
+{% endif %}
+{% endblock %}
