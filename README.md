@@ -18,3 +18,5 @@ python app.py
 ```
 
 Open http://localhost:5001
+
+Recipes include serving size estimates.
