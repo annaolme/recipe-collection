@@ -22,3 +22,5 @@ Open http://localhost:5001
 Recipes include serving size estimates.
 
 Run with FLASK_DEBUG=1 for hot reload.
+
+Updated to Flask 2.3.
